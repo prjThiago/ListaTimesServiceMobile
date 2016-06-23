@@ -6,7 +6,7 @@ function createDBConnection() {
 		
 		var connection = process.env.CLEARDB_DATABASE_URL;
 		
-		var conn = connection.match(/mysql:\/\/(.*):(.*)@(.*)\/(.*)?reconnect=true/);
+		var conn = connection.match(/mysql:\/\/(.*):(.*)@(.*)\/(.*)\?reconnect=true/);
 		
 		console.log(conn);
 		

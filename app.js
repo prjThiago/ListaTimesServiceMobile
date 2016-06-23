@@ -1,5 +1,8 @@
 var app = require('./config/express')();
 
-app.listen(3000, function(){
-	console.log("Servidor rodando"); 
+var porta = process.env.PORT || 3000;
+var mode = process.env.NODE_ENV || "Teste";
+
+app.listen(porta, function(){
+	console.log("Servidor rodando em modo "+ mode); 
 });

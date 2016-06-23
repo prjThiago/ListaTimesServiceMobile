@@ -8,8 +8,6 @@ function createDBConnection() {
 		
 		var conn = connection.match(/mysql:\/\/(.*):(.*)@(.*)\/(.*)\?reconnect=true/);
 		
-		console.log(conn);
-		
 		return mysql.createConnection({
 				host: conn[3],
 				user: conn[1],

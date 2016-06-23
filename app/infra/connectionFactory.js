@@ -1,22 +1,29 @@
 var mysql = require('mysql');
 
-function createDBConnection() {
+function createDBConnection() {	
 	
-	//if(process.env.NODE_ENV == "production") {
+	if(process.env.NODE_ENV == "production") {
+		
+		var connection = process.env.CLEARDB_DATABASE_URL;
+		
+		var conn = connection.match(/mysql:\/\/(.*):(.*)@(.*)\/(.*)?reconnect=true/);
+		
+		console.log(conn);
+		
 		return mysql.createConnection({
-				host: '108.179.193.89',
-				user: 'torce428_listati',
-				password: '123qwe$%fpde10{}',
-				database: 'torce428_listatimes'
+				host: conn[2],
+				user: conn[0],
+				password: conn[1],
+				database: conn[3]
 		});	
-	/*} else{
+	} else{
 		return mysql.createConnection({
 				host: 'localhost',
 				user: 'root',
 				password: '',
 				database: 'listatimesmobile'
 		});		
-	}*/
+	}
 	
 };
 

@@ -11,10 +11,10 @@ function createDBConnection() {
 		console.log(conn);
 		
 		return mysql.createConnection({
-				host: conn[2],
-				user: conn[0],
-				password: conn[1],
-				database: conn[3]
+				host: conn[3],
+				user: conn[1],
+				password: conn[2],
+				database: conn[4]
 		});	
 	} else{
 		return mysql.createConnection({

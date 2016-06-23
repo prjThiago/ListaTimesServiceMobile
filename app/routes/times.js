@@ -7,6 +7,9 @@ module.exports = function(app) {
         var timesList = new app.infra.TimesDAO(connection);
 
         timesList.lista(function(err, resposta) {
+            
+            console.log(err);
+            
             res.format({
                 json: function() {
                     res.json(resposta);
